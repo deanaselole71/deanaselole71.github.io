@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeanEze | Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #23272a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bg-gif {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.discordapp.com/attachments/1387992861458567228/1388068228089118720/inumakispesial.gif?ex=685fa2c6&is=685e5146&hm=d48afaf526f1bf8fc7e9076b1fb0010d545be806a85c9941208e0806f3ab9e26&') center/cover;
+            opacity: 0.2;
+            z-index: -1;
+            animation: bgMove 30s infinite linear;
+        }
+        
+        @keyframes bgMove {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #b9bbbe;
+            margin: 0 auto 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .profile-tag {
+            color: #b9bbbe;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+        }
+        
+        .roles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .role {
+            background: #7289da;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .role:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .role-1 { background: #7289da; }
+        .role-2 { background: #43b581; }
+        .role-3 { background: #f47b67; }
+        .role-4 { background: #5865f2; }
+        .role-5 { background: #eb459e; }
+        
+        .hobbies {
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .hobby-title {
+            font-size: 14px;
+            color: #b9bbbe;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hobby-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            border-radius: 8px;
+            background: rgba(46, 48, 54, 0.5);
+            transition: all 0.2s ease;
+        }
+        
+        .hobby-item:hover {
+            background: rgba(54, 57, 63, 0.8);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .discord { background: #5865f2; }
+        .instagram { background: #e1306c; }
+        .facebook { background: #4267b2; }
+        .github { background: #333; }
+        .youtube { background: #ff0000; }
+        
+        .music-player {
+            margin-top: 25px;
+            width: 100%;
+        }
+        
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .music-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .music-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: #7289da;
+        }
+        
+        .music-info {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #b9bbbe;
+        }
+        
+        .volume-control {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .volume-slider {
+            width: 100px;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-10%); }
+            100% { transform: translateX(10%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gif"></div>
+    <div class="profile-card">
+        <div class="slider"></div>
+        <img src="inutoge.png" alt="Modern digital avatar of a developer with subtle purple accent colors and futuristic tech elements" class="profile-img">
+        
+        <h1 class="profile-name">DeanEze</h1>
+        <p class="profile-tag">@deaneze</p>
+        
+        <div class="roles">
+            <span class="role role-1">Developer</span>
+            <span class="role role-2">Designer</span>
+            <span class="role role-3">Gamer</span>
+            <span class="role role-4">Muay Thai Player</span>
+            <span class="role role-5">NPC</span>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="hobbies">
+            <div class="hobby-title">Hobbies & Interests</div>
+            <div class="hobby-item">
+                <i class="fas fa-code mr-2"></i> Web Development
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-gamepad mr-2"></i> Gaming
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-music mr-2"></i> Music Production
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-camera mr-2"></i> Watch Drakor & Anime
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://discord.com/users/698977078573269122" class="social-link discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="social-link facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://github.com/deanafrizal17" class="social-link github">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.youtube.com/@deanxinumaki" class="social-link youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        
+        <div class="music-player">
+            <div class="music-controls">
+                <button class="music-btn" id="prev-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button class="music-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="music-btn" id="next-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
+            <div class="music-info" id="music-info">
+                Now Playing: SPESIALZ
+            </div>
+            <audio id="bg-music" loop>
+                <source src="youare.mp3" type="audio/mpeg">
+            </audio>
+            <div class="volume-control">
+                <label for="volume" style="color: #b9bbbe;">Volume:</label>
+                <input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Music player functionality
+            const playBtn = document.querySelector('.play-btn');
+            const audio = document.getElementById('bg-music');
+            const volumeSlider = document.getElementById('volume');
+            const musicInfo = document.getElementById('music-info');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            const tracks = [
+                { title: "SPESIALZ", src: "youare.mp3" },
+                { title: "RYOMEN SUKUNA", src: "ryomensukuna.mp3" },
+                { title: "JUJUTSU DOMAIN", src: "jujutsukaisen.mp3" }
+            ];
+
+            let currentTrackIndex = 0;
+            let isPlaying = false;
+
+            // Set initial volume
+            audio.volume = volumeSlider.value;
+
+            // Load the current track
+            function loadTrack(index) {
+                audio.src = tracks[index].src;
+                musicInfo.textContent = `Now Playing: ${tracks[index].title}`;
+                audio.load();
+            }
+
+            // Play/Pause functionality
+            playBtn.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                } else {
+                    audio.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // Volume control
+            volumeSlider.addEventListener('input', function() {
+                audio.volume = this.value;
+            });
+
+            // Next track functionality
+            nextBtn.addEventListener('click', function() {
+                currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+                loadTrack(currentTrackIndex);
+                if (isPlaying) {
+                    audio.play();
+                }
+            });
+
+            // Previous track functionality
+            prevBtn.addEventListener('click', function() {
+                currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+                loadTrack(currentTrackIndex);
+                if (isPlaying) {
+                    audio.play();
+                }
+            });
+
+            // Load the first track initially
+            loadTrack(currentTrackIndex);
+        });
+    </script>
+</body>
+</html>
